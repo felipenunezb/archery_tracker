@@ -41,22 +41,18 @@ def main():
         data = read_data(eg_filepath)
             
         main_plot = get_overall_plot(data["scores_agg"])
+        sc.write("##### Progreso puntaje")
         sc.bokeh_chart(main_plot, use_container_width=True)
         
         col1, col2 = sc.columns(2)
         with col1:
-            #round_type = st.radio(label='Tipo de grafico', 
-            #                      options=[1, 2], 
-            #                      label_visibility='hidden', 
-            #                      horizontal=True,
-            #                      format_func = lambda x: "Promedio" if x == 1 else "Historico")
-            #if round_type == 2:
-            #    rondas = st.multiselect(label='Rondas', options=[i for i in range(1,13)], default=[i for i in range(1,13)])
             round_plot = get_round_scores(data["round_scores_df"])
+            st.write("##### Puntaje promedio por ronda")
             st.bokeh_chart(round_plot, use_container_width=True)
             
         with col2:
             count_plot = get_x_m_counts(data["x_m_df"])
+            st.write("##### Progreso X/M")
             st.bokeh_chart(count_plot, use_container_width=True)
         
 main()
