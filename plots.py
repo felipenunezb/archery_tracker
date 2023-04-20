@@ -136,11 +136,11 @@ def get_x_m_counts(df: pd.DataFrame):
     p = figure(width=1200, height=600, x_axis_type="datetime", tools=TOOLS, y_range=(0,10), tooltips=TOOLTIPS)
     p.yaxis.axis_label = "Conteo"
 
-    p.line("date", "x", source=source, color="#3CB043", line_width=2)
+    p.line("date", "x", source=source, color="#3CB043", line_width=2, legend_label="X")
     glyph = Scatter(x="date", y="x", size=12, fill_color="#03AC13", marker="circle_x")
     p.add_glyph(source, glyph)
 
-    p.line("date", "m", source=source, color="#DD1C77", line_width=2)
+    p.line("date", "m", source=source, color="#DD1C77", line_width=2, legend_label="M")
     glyph = Scatter(x="date", y="m", size=12, fill_color="#DD1C77", marker="circle_x")
     p.add_glyph(source, glyph)
 
